@@ -38,10 +38,10 @@ const App = (): JSX.Element => {
         <div className="App">
             <Nav />
             <main className="App-content">
-                {isFetchError && <Error />}
                 <Ctx.Provider value={state}>
                     <Outlet />
                 </Ctx.Provider>
+                {isFetchError && <Error />}
             </main>
         </div>
     )

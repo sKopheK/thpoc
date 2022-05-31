@@ -1,4 +1,12 @@
+@use "../../scss/color.scss";
+@use "../../scss/mixin.scss" as *;
+
 .Error
 {
-    
+    margin: 1em 0;
+    padding: 1em;
+
+    color: color.$error-font;
+    background-color: color.$error-bg;
+    @include ridgedBorder(color.$error-border);
 }
