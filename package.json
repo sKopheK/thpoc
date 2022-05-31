@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "postcss-normalize": "^10.0.1",
+    "reset-css": "^5.0.1",
     "sass": "^1.52.1"
   }
 }
