@@ -4,6 +4,7 @@ import { getCharacter, getEquipment } from "./apiRequests";
 import "./App.scss";
 import CharacterModel from "./components/Character/CharacterModel";
 import EquipmentModel from "./components/Equipment/EquipmentModel";
+import Error from "./components/Error/Error";
 import Ctx, { AppCtx } from "./Ctx";
 
 const App = (): JSX.Element => {
@@ -18,12 +19,18 @@ const App = (): JSX.Element => {
         refresh,
     }
 
+    const [ isFetchError, setFetchError ] = useState(false);
+
     useEffect(() => {
-      getCharacter().then(data => setCharacter(data));
+      getCharacter()
+        .then(data => setCharacter(data))
+        .catch(() => setFetchError(true));
     }, [ refreshState ]);
 
     useEffect(() => {
-        getEquipment().then(data => setEquipment(data));
+        getEquipment()
+            .then(data => setEquipment(data))
+            .catch(() => setFetchError(true));
     }, [ refreshState ]);
 
     const links = [
@@ -42,6 +49,7 @@ const App = (): JSX.Element => {
                     ))}
                 </ul>
             </nav>
+            {isFetchError && <Error />}
             <Ctx.Provider value={state}>
                 <Outlet />
             </Ctx.Provider>
