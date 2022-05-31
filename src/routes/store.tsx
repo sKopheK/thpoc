@@ -2,10 +2,10 @@ import EquipmentList from "../components/EquipmentList/EquipmentList";
 
 const Store = () => {
   return (
-    <main>
-      <h1>Store</h1>
+    <>
+      <h1 className="ui-heading">Store</h1>
       <EquipmentList />
-    </main>
+    </>
   );
 }
 export default Store;

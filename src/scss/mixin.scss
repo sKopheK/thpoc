@@ -1,0 +1,8 @@
+@mixin ridgedBorder($color, $width: 3px)
+{
+    border: {
+        width: $width;
+        style: ridge;
+        color: $color;
+    }
+}

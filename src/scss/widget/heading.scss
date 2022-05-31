@@ -1,0 +1,45 @@
+@use "../color.scss";
+@use "../mixin.scss" as *;
+
+@mixin headingBorder
+{
+    @include ridgedBorder(color.$border darken(color.$border, 10%) darken(color.$border, 10%));
+}
+
+.ui-heading
+{
+    display: inline-flex;
+    justify-content: center;
+    padding: .5em .7em .7em;
+    box-sizing: border-box;
+    margin: 0 auto .7em;
+    min-width: 10em;
+    max-width: 100%;
+
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: .04em;
+
+    background: repeating-radial-gradient(
+        ellipse farthest-corner at 20% 20%,
+        color.$heading-bg 3%,
+        color.$heading-bg--3 8%,
+        color.$heading-bg 11%,
+        color.$heading-bg--2 16%
+    );
+
+    @include headingBorder;
+    position: relative;
+
+    &::before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include headingBorder;
+    }
+}

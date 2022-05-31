@@ -1,3 +1,42 @@
-.App {
-    @import 'reset-css';
+@use "scss/color.scss";
+@use "scss/mixin.scss" as *;
+
+html
+{
+    background-color: color.$bg;
+}
+
+body
+{
+    @include ridgedBorder(color.$border-light-h color.$border-light-v);
+    border-radius: 5px;
+    margin: 2px;
+    padding: 4px;
+}
+
+#root
+{
+    @include ridgedBorder(color.$border);
+    padding: 1px;
+}
+
+.App
+{
+    @include ridgedBorder(color.$border);
+    padding: .5em;
+    color: color.$font;
+
+    &-content
+    {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @import "scss/widget/heading.scss";
+}
+
+a
+{
+    color: color.$font;
 }

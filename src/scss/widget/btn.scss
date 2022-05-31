@@ -1,0 +1,57 @@
+@use "../color.scss";
+@use "../mixin.scss" as *;
+
+.ui-btn
+{
+    border: {
+        width: 2px;
+        style: outset;
+        color: color.$border;
+    }
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .4em .7em;
+    min-width: 8em;
+
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-decoration: none;
+
+    color: color.$btn-font;
+    background: repeating-radial-gradient(
+        ellipse,
+        color.$btn-bg 5%,
+        color.$btn-bg--2 9%,
+        color.$btn-bg--3 12%,
+        color.$btn-bg--2 14%
+    );
+
+    opacity: .8;
+
+    &:hover,
+    &:focus
+    {
+        opacity: 1;
+    }
+
+    &.is-active
+    {
+        color: color.$font;
+    }
+
+    &[disabled]
+    {
+        $opacity--disabled: .6;
+        opacity: $opacity--disabled;
+        cursor: not-allowed;
+
+        &:hover,
+        &:focus
+        {
+            opacity: $opacity--disabled;
+        }
+    }
+}
