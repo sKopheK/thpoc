@@ -8,9 +8,7 @@ const Character = () => {
   const [info, setInfo] = useState(null as CharacterModel | null);
 
   useEffect(() => {
-    getCharacter().then((data: CharacterModel) => {
-      setInfo(data);
-    });
+    getCharacter().then(data => setInfo(data));
   }, []);
 
   let equipmentList: string | JSX.Element = 'No equipment';
@@ -18,7 +16,7 @@ const Character = () => {
   {
     equipmentList = (
       <ul>
-        {info[EQUIPMENT_KEY].map(equipmentItem => <li><Equipment item={equipmentItem}></Equipment></li>)}
+        {info[EQUIPMENT_KEY].map((equipmentItem, i) => <li key={i}><Equipment item={equipmentItem}></Equipment></li>)}
       </ul>
     );
   }
