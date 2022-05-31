@@ -16,7 +16,14 @@ const Character = () => {
       // attribute can be modified
       if (modifier)
       {
-        charInfo[key as keyof typeof characterAttrModifiers] = modifier(character[key as CharacterAttrs], character).toString();
+        const base = character[key as CharacterAttrs];
+        const bonus = modifier(character[key as CharacterAttrs], character);
+        const total = base + bonus;
+        charInfo[key as keyof typeof characterAttrModifiers] = (
+          <>
+          {total}
+          {bonus ? <span className="char-calc">{base} + {bonus}</span> : ''}
+        </>);
       }
       // prepare list of equipment
       else if (key === EQUIPMENT_KEY)

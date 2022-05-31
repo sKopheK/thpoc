@@ -13,11 +13,11 @@ interface CharacterModel {
 const characterAttrModifiers = {
     hitPoints: function modify(hp: number, character: CharacterModel): number {
         const equipment = character[EQUIPMENT_KEY];
-        return hp + equipment.reduce((hpModSum, item) => hpModSum + item.hpModifier, 0);
+        return equipment.reduce((hpModSum, item) => hpModSum + item.hpModifier, 0);
     },
     luck: function modify(luck: number, character: CharacterModel): number {
         const equipment = character[EQUIPMENT_KEY];
-        return luck + equipment.reduce((luckModSum, item) => luckModSum + item.luckModifier, 0);
+        return equipment.reduce((luckModSum, item) => luckModSum + item.luckModifier, 0);
     },
 }
 
