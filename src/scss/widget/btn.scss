@@ -1,3 +1,4 @@
+@use "../conf.scss";
 @use "../color.scss";
 @use "../mixin.scss" as *;
 
@@ -11,8 +12,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     padding: .4em .7em;
-    min-width: 8em;
 
     font-size: 14px;
     line-height: 18px;
@@ -32,6 +33,16 @@
 
     opacity: .8;
 
+    @media (max-width: (conf.$breakpoint-mobile-big - 1))
+    {
+        width: 100%;
+    }
+
+    @media (min-width: conf.$breakpoint-mobile-big)
+    {
+        min-width: 8em;
+    }
+
     &:hover,
     &:focus
     {
@@ -48,6 +59,7 @@
         $opacity--disabled: .6;
         opacity: $opacity--disabled;
         cursor: not-allowed;
+        filter: grayscale(1);
 
         &:hover,
         &:focus

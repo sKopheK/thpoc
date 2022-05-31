@@ -90,4 +90,12 @@ $grid-padding-v: 10px;
             }
         }
     }
+
+    .EquipmentList
+    {
+        @media (min-width: conf.$breakpoint-mobile-big)
+        {
+            justify-items: start;
+        }
+    }
 }

@@ -1,14 +1,26 @@
+@use "../../scss/conf.scss";
+
 .EquipmentList
 {
-    display: inline-grid;
-    gap: 1em;
-    grid-auto-flow: column;
-    justify-content: start;
-    align-items: stretch;
+    width: 100%;
+
+    @media (min-width: conf.$breakpoint-mobile-big)
+    {
+        display: inline-grid;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fill, minmax(conf.$equipment-item-width, 1fr));
+        justify-items: center;
+        align-items: stretch;
+    }
 
     .Equipment
     {
         height: 100%;
         box-sizing: border-box;
+
+        @media (max-width: (conf.$breakpoint-mobile-big - 1))
+        {
+            margin: 1em 0;
+        }
     }
 }

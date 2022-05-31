@@ -9,9 +9,13 @@ $ico-size: 6em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 300px;
     padding: 1em;
     text-align: center;
+
+    @media (min-width: conf.$breakpoint-mobile-big)
+    {
+        max-width: conf.$equipment-item-width;
+    }
 
     @include ridgedBorder(color.$border);
     background: repeating-radial-gradient(
@@ -54,10 +58,13 @@ $ico-size: 6em;
     dl
     {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
         gap: .5em 1em;
         align-items: center;
 
+        @media (min-width: conf.$breakpoint-mobile-big)
+        {
+            grid-template-columns: repeat(6, 1fr);
+        }
 
         &::before
         {
@@ -75,10 +82,14 @@ $ico-size: 6em;
         > dt
         {
             font-size: 0;
-            float: left;
             width: conf.$ico-size;
             height: conf.$ico-size;
             justify-self: end;
+
+            @media (max-width: (conf.$breakpoint-mobile-big - 1))
+            {
+                grid-column: 1;
+            }
         }
 
         > dd

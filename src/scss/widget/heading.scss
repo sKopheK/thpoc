@@ -1,3 +1,4 @@
+@use "../conf.scss";
 @use "../color.scss";
 @use "../mixin.scss" as *;
 
@@ -8,13 +9,11 @@
 
 .ui-heading
 {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     padding: .5em .7em .7em;
     box-sizing: border-box;
     margin: 0 auto .7em;
-    min-width: 10em;
-    max-width: 100%;
 
     text-transform: uppercase;
     font-size: 30px;
@@ -31,6 +30,16 @@
 
     @include headingBorder;
     position: relative;
+
+    @media (max-width: (conf.$breakpoint-mobile-big - 1))
+    {
+        width: 100%;
+    }
+
+    @media (min-width: conf.$breakpoint-mobile-big)
+    {
+        min-width: 10em;
+    }
 
     &::before
     {
