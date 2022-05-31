@@ -9,10 +9,9 @@ const Equipment = ({item, includeId = false}: {item: EquipmentModel, includeId?:
     }
 
     return (<>
-        <h3>{item.name}</h3>
         <dl>
         {propsToRender.map(key => (
-            <React.Fragment key={`${item.name}-${key}`}>
+            <React.Fragment key={key}>
                 <>
                     <dt>{key[0].toUpperCase() + key.slice(1)}</dt>
                     <dd>{item[key as EquipmentModelProp]}</dd>
