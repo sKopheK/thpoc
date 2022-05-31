@@ -1,4 +1,93 @@
+@use "../../scss/color.scss";
+@use "../../scss/mixin.scss" as *;
+@use "../../scss/conf.scss";
+
+$ico-m-right: 10px;
+$grid-spacing-h: 1em;
+$grid-spacing-v: .7em;
+$grid-padding-v: 10px;
+
+@mixin topBorder
+{
+    @include ridgedBorder(color.$border);
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
 .Character
 {
+    color: color.$character;
 
+    &-detail
+    {
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        gap: $grid-spacing-v $grid-spacing-h;
+        align-items: center;
+
+        @include topBorder;
+        padding: $grid-spacing-v $grid-padding-v;
+
+        > dt,
+        > dd
+        {
+            min-height: conf.$ico-size;
+            display: flex;
+            align-items: center;
+        }
+
+        > dt
+        {
+            grid-column: 1 / 3;
+            align-items: center;
+            padding-left: calc(#{conf.$ico-size} + #{$ico-m-right});
+            color: color.$character-label;
+        }
+
+        > dd
+        {
+            font-weight: bold;
+            font-size: 135%;
+        }
+
+        .char-name
+        {
+            grid-column: span 2;
+            min-height: conf.$ico-size * 2;
+
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: color.$character-name;
+
+            &--label
+            {
+                font-size: 0;
+                background-size: 100%;
+                width: conf.$ico-size * 2;
+                min-height: conf.$ico-size * 2;
+                padding-left: 0;
+                grid-column: 1;
+            }
+        }
+
+        .char-equipment
+        {
+            grid-column: 1 / 4;
+            font-size: 100%;
+            font-weight: normal;
+
+            &--label
+            {
+                grid-column: 1 / 4;
+                font-size: 130%;
+                font-weight: bold;
+
+                @include topBorder;
+                margin: 0 $grid-padding-v*-1;
+                padding: $grid-padding-v $grid-padding-v 0;
+            }
+        }
+    }
 }

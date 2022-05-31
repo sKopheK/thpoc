@@ -1,7 +1,8 @@
 import React from "react";
 import EquipmentModel, { EquipmentModelProp, ID_KEY } from "./EquipmentModel";
+import "./Equipment.scss";
 
-const Equipment = ({item, includeId = false}: {item: EquipmentModel, includeId?: boolean}) => {
+const Equipment = ({item, button, includeId = false}: {item: EquipmentModel, button?: JSX.Element, includeId?: boolean}) => {
     let propsToRender = Object.keys(item);
     if (!includeId)
     {
@@ -9,16 +10,17 @@ const Equipment = ({item, includeId = false}: {item: EquipmentModel, includeId?:
     }
 
     return (<>
-        <dl>
-        {propsToRender.map(key => (
-            <React.Fragment key={key}>
-                <>
-                    <dt>{key[0].toUpperCase() + key.slice(1)}</dt>
-                    <dd>{item[key as EquipmentModelProp]}</dd>
-                </>
-            </React.Fragment>
-        ))}
-        </dl>
+        <div className={`Equipment Equipment--${item.type}`}>
+            <dl>
+            {propsToRender.map(key => (
+                <React.Fragment key={key}>
+                    <dt className={`item-${key}--label ico ico-item-${key}`}>{key[0].toUpperCase() + key.slice(1)}</dt>
+                    <dd className={`item-${key}`}>{item[key as EquipmentModelProp]}</dd>
+                </React.Fragment>
+            ))}
+            </dl>
+            {button}
+        </div>
     </>);
 };
 

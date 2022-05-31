@@ -1,0 +1,14 @@
+.EquipmentList
+{
+    display: inline-grid;
+    gap: 1em;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: stretch;
+
+    .Equipment
+    {
+        height: 100%;
+        box-sizing: border-box;
+    }
+}

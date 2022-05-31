@@ -1,0 +1,33 @@
+@use "../conf.scss";
+
+.ico
+{
+    display: inline-flex;
+    background: {
+        repeat: no-repeat;
+        size: conf.$ico-size;
+    }
+
+    &-char-name
+    {
+        background-image: url('#{conf.$ico-path}character.png');
+    }
+
+    &-char-hitPoints,
+    &-item-hpModifier
+    {
+        background-image: url('#{conf.$ico-path}heart.png');
+    }
+
+    &-char-luck,
+    &-item-luckModifier
+    {
+        background-image: url('#{conf.$ico-path}luck.png');
+    }
+
+    &-char-wealth,
+    &-item-value
+    {
+        background-image: url('#{conf.$ico-path}coin.png');
+    }
+}
