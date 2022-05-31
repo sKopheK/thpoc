@@ -25,7 +25,6 @@ const Character = () => {
 
   return (
     <div className="Character">
-      <h1>Character</h1>
       <dl>
       {info && Object.keys(info).map((key) => (
         <React.Fragment key={key}>
