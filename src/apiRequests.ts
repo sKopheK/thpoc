@@ -1,8 +1,5 @@
 import axios from "axios";
-
-interface CharacterModel {
-  name: string;
-}
+import CharacterModel from "./components/Character/CharacterModel";
 
 async function getCharacter(): Promise<CharacterModel> {
   const url = "/api/character";
@@ -12,4 +9,3 @@ async function getCharacter(): Promise<CharacterModel> {
 }
 
 export { getCharacter };
-export type { CharacterModel };
