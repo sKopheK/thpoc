@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
-import Ctx from "../../Ctx";
-import Equipment from "../Equipment/Equipment";
+import React from "react";
+import EquipmentList from "../EquipmentList/EquipmentList";
 import CharacterModel, { characterAttrModifiers, CharacterAttrs, CharacterModelProp, EQUIPMENT_KEY } from "./CharacterModel";
 import "./Character.scss";
 
-const Character = () => {
-  const {character} = useContext(Ctx);
+const Character = (
+  {
+    character
+  }: {
+    character: CharacterModel | null
+  }
+) => {
   const charInfo: Partial<{[k in CharacterModelProp]: string | JSX.Element}> = {};
 
   if (character)
@@ -31,11 +35,7 @@ const Character = () => {
         let equipmentList: string | JSX.Element = 'Your inventory is empty, but your wallet is not.';
         if (character && character[key].length > 0)
         {
-          equipmentList = (
-            <ul className="EquipmentList">
-              {character[EQUIPMENT_KEY].map((equipmentItem, i) => <li key={i}><Equipment item={equipmentItem}></Equipment></li>)}
-            </ul>
-          );
+          equipmentList = <EquipmentList equipment={character[EQUIPMENT_KEY]} renderButton={false} />;
         }
         charInfo[key] = equipmentList;
       }

@@ -2,7 +2,17 @@ import React from "react";
 import EquipmentModel, { EquipmentModelProp, ID_KEY } from "./EquipmentModel";
 import "./Equipment.scss";
 
-const Equipment = ({item, button, includeId = false}: {item: EquipmentModel, button?: JSX.Element, includeId?: boolean}) => {
+const Equipment = (
+    {
+        item,
+        button,
+        includeId = false
+    }: {
+        item: EquipmentModel,
+        button: boolean | JSX.Element,
+        includeId?: boolean
+    }
+) => {
     let propsToRender = Object.keys(item);
     if (!includeId)
     {
