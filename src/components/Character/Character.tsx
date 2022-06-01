@@ -1,6 +1,7 @@
 import React from "react";
 import EquipmentList from "../EquipmentList/EquipmentList";
 import CharacterModel, { characterAttrModifiers, CharacterAttrs, CharacterModelProp, EQUIPMENT_KEY } from "./CharacterModel";
+import { Link } from "react-router-dom";
 import styles from "./Character.module.scss";
 import stylesList from "../EquipmentList/EquipmentList.module.scss";
 
@@ -33,7 +34,7 @@ const Character = (
       // prepare list of equipment
       else if (key === EQUIPMENT_KEY)
       {
-        let equipmentList: string | JSX.Element = 'Your inventory is empty, but your wallet is not.';
+        let equipmentList: string | JSX.Element = (<p>Your inventory is empty, but your wallet is not. <Link to="/store">Let's go to the mall.</Link></p>);
         if (character && character[key].length > 0)
         {
           equipmentList = <EquipmentList equipment={character[EQUIPMENT_KEY]} className={stylesList['base--left']} renderButton={false} />;
