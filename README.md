@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# The Treasure Hunter’s Arrangements
+
+Assignment for job application @ Atlas Copco, not intended for production.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Treasure Hunters all over the world routinely attempt to conquer the most challenging mazes in search for riches. But modern dungeon crawling has become tougher. What used to be a spontaneous spelunk now places higher demands on both physique and gear.
+
+What is needed is a marvel of technical brilliance to manage and prepare adventurers before departure. If only there was a basic inventory management system, and possibly a lightweight eCommerce solution.
+
+Help, the Treasure Hunters shout; be calm, you respond!
 
 ## Available Scripts
 
