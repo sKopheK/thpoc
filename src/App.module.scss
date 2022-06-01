@@ -20,24 +20,21 @@ body
     padding: 1px;
 }
 
-.App
+.base
 {
     @include ridgedBorder(color.$border);
     padding: .5em;
     color: color.$font;
 
-    &-content
+    a
     {
-        margin-top: 1em;
-        display: flex;
-        flex-direction: column;
+        color: color.$font;
     }
-
-    @import "scss/widget/heading.scss";
-    @import "scss/widget/ico.scss";
 }
 
-a
+.content
 {
-    color: color.$font;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
 }

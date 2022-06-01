@@ -1,7 +1,8 @@
 import React from "react";
 import EquipmentList from "../EquipmentList/EquipmentList";
 import CharacterModel, { characterAttrModifiers, CharacterAttrs, CharacterModelProp, EQUIPMENT_KEY } from "./CharacterModel";
-import "./Character.scss";
+import styles from "./Character.module.scss";
+import stylesList from "../EquipmentList/EquipmentList.module.scss";
 
 const Character = (
   {
@@ -26,7 +27,7 @@ const Character = (
         charInfo[key as keyof typeof characterAttrModifiers] = (
           <>
           {total}
-          {bonus ? <span className="char-calc">{base} + {bonus}</span> : ''}
+          {bonus ? <span className={styles.calc}>{base} + {bonus}</span> : ''}
         </>);
       }
       // prepare list of equipment
@@ -35,7 +36,7 @@ const Character = (
         let equipmentList: string | JSX.Element = 'Your inventory is empty, but your wallet is not.';
         if (character && character[key].length > 0)
         {
-          equipmentList = <EquipmentList equipment={character[EQUIPMENT_KEY]} renderButton={false} />;
+          equipmentList = <EquipmentList equipment={character[EQUIPMENT_KEY]} className={stylesList['base--left']} renderButton={false} />;
         }
         charInfo[key] = equipmentList;
       }
@@ -49,13 +50,13 @@ const Character = (
   const charInfoKeys = Object.keys(charInfo);
 
   return (
-    <div className="Character">
+    <div className={styles.base}>
       {charInfoKeys.length > 0 && (
-        <dl className="Character-detail">
+        <dl className={styles.detail}>
         {charInfoKeys.map((key) => (
           <React.Fragment key={key}>
-            <dt className={`char-${key}--label ico ico-char-${key}`}>{key[0].toUpperCase() + key.slice(1)}</dt>
-            <dd className={`char-${key}`}>{charInfo[key as CharacterModelProp]}</dd>
+            <dt className={`${styles.label} ${styles[key + '-label'] ?? ''}`}>{key[0].toUpperCase() + key.slice(1)}</dt>
+            <dd className={`${styles.value} ${styles[key] ?? ''}`}>{charInfo[key as CharacterModelProp]}</dd>
           </React.Fragment>
         ))}
         </dl>

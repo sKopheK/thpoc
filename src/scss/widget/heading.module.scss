@@ -7,7 +7,7 @@
     @include ridgedBorder(color.$border darken(color.$border, 10%) darken(color.$border, 10%));
 }
 
-.ui-heading
+.base
 {
     display: flex;
     justify-content: center;

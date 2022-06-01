@@ -1,0 +1,45 @@
+@use "conf.scss";
+
+@mixin base($size: conf.$ico-size)
+{
+    display: inline-flex;
+    background: {
+        repeat: no-repeat;
+        size: $size;
+    }
+}
+
+@mixin character
+{
+    background-image: url('#{conf.$ico-path}character.png');
+}
+
+@mixin heart
+{
+    background-image: url('#{conf.$ico-path}heart.png');
+}
+
+@mixin luck
+{
+    background-image: url('#{conf.$ico-path}luck.png');
+}
+
+@mixin coin
+{
+    background-image: url('#{conf.$ico-path}coin.png');
+}
+
+@mixin weapon
+{
+    background-image: url('#{conf.$ico-path}weapon.png');
+}
+
+@mixin armor
+{
+    background-image: url('#{conf.$ico-path}armor.png');
+}
+
+@mixin trinket
+{
+    background-image: url('#{conf.$ico-path}trinket.png');
+}

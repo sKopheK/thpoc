@@ -1,4 +1,4 @@
-import "../../scss/widget/btn.scss";
+import stylesButton from '../../scss/widget/button.module.scss';
 
 const PurchaseBtn = (
     {
@@ -11,7 +11,7 @@ const PurchaseBtn = (
         className?: string
     }
 ) => (
-    <button disabled={disabled} onClick={onClick} className={`ui-btn ${className}`}>Purchase</button>
+    <button disabled={disabled} onClick={onClick} className={`${stylesButton.base} ${className}`}>Purchase</button>
 );
 
 export default PurchaseBtn;

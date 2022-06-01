@@ -4,14 +4,17 @@ import Ctx from "../../Ctx";
 import Equipment from "../Equipment/Equipment";
 import EquipmentModel from "../Equipment/EquipmentModel";
 import PurchaseBtn from "../PurchaseBtn/PurchaseBtn";
-import "./EquipmentList.scss";
+import styles from "./EquipmentList.module.scss";
+import stylesEquipment from "../Equipment/Equipment.module.scss";
 
 const EquipmentList = (
     {
         equipment,
+        className,
         renderButton = true
     }: {
         equipment: EquipmentModel[],
+        className?: string,
         renderButton?: boolean
     }
 ) => {
@@ -27,14 +30,14 @@ const EquipmentList = (
     }, [refresh]);
 
     return (
-        <ul className="EquipmentList">
+        <ul className={`${styles.base} ${className}`}>
             {equipment.map((item, i) => (
-                <li key={i}>
+                <li key={i} className={styles.item}>
                     <Equipment item={item} button={renderButton && (
                         <PurchaseBtn
                             disabled={!character || character.wealth < item.value}
                             onClick={() => purchaseItem(item.id)}
-                            className="Equipment__btn"
+                            className={stylesEquipment.btn}
                         />
                     )}/>
                 </li>

@@ -1,6 +1,6 @@
 @use "../../scss/conf.scss";
 
-.EquipmentList
+.base
 {
     width: 100%;
 
@@ -9,18 +9,26 @@
         display: inline-grid;
         gap: 1em;
         grid-template-columns: repeat(auto-fill, minmax(conf.$equipment-item-width, 1fr));
-        justify-items: center;
+        justify-items: stretch;
         align-items: stretch;
     }
 
-    .Equipment
+    &--left
     {
-        height: 100%;
-        box-sizing: border-box;
-
-        @media (max-width: (conf.$breakpoint-mobile-big - 1))
+        .item
         {
-            margin: 1em 0;
+            justify-content: start;
         }
+    }
+}
+
+.item
+{
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: (conf.$breakpoint-mobile-big - 1))
+    {
+        margin: 1em 0;
     }
 }

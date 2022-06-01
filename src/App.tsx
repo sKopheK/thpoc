@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { getCharacter, getEquipment } from "./apiRequests";
-import "./App.scss";
 import CharacterModel from "./components/Character/CharacterModel";
 import EquipmentModel from "./components/Equipment/EquipmentModel";
 import Error from "./components/Error/Error";
 import Nav from "./components/Nav/Nav";
 import Ctx, { AppCtx } from "./Ctx";
+import styles from "./App.module.scss";
 
 const App = (): JSX.Element => {
     const [ character, setCharacter ] = useState<CharacterModel | null>(null);
@@ -35,9 +35,9 @@ const App = (): JSX.Element => {
     }, [ refreshState ]);
 
     return (
-        <div className="App">
+        <div className={styles.base}>
             <Nav />
-            <main className="App-content">
+            <main className={styles.content}>
                 <Ctx.Provider value={state}>
                     <Outlet />
                 </Ctx.Provider>

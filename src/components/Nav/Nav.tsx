@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import '../../scss/widget/btn.scss';
-import './Nav.scss';
+import styles from './Nav.module.scss';
+import stylesButton from '../../scss/widget/button.module.scss';
 
 const links = [
     { label: 'Inventory', route: '/inventory' },
@@ -9,10 +9,10 @@ const links = [
 
 const Nav = () => (
         <nav>
-            <ul className="Menu">
+            <ul className={styles.base}>
                 {links.map(({label, route}, i) => (
                     <li key={`menu-${i}`}>
-                        <NavLink to={route} className={({isActive}) => `ui-btn${isActive ? ' is-active' : ''}`}>{label}</NavLink>
+                        <NavLink to={route} className={({isActive}) => `${stylesButton.base} ${isActive ? 'is-active' : ''}`}>{label}</NavLink>
                     </li>
                 ))}
             </ul>
